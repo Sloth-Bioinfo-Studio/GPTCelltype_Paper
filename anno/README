@@ -2,3 +2,106 @@ start with raw annotation and cell types
 first generate cl, manually annotate, and repopulate back
 then do agreement, manually annotate, and repopulate back
 each time when update cl and agreement, check if already done
+
+## Abstract
+
+```bash
+anno
+    ├── cl
+    │   ├── compiled.csv
+    │   ├── generate.R
+    │   └── relation.csv
+    ├── code
+    │   ├── all.R
+    │   ├── gpt4topgenenumber.R
+    │   ├── makegptother.R
+    │   └── makegpttabulasapiens.R
+    ├── compiled
+    │   ├── all.csv
+    │   └── gpt4topgenenumber.csv
+    ├── process
+    │   ├── agg
+    │   │   ├── cancertemplate.R
+    │   │   ├── sctype.R
+    │   │   └── SingleR.R
+    │   ├── cancer
+    │   │   ├── bcl
+    │   │   │   ├── data
+    │   │   │   │   └── proc.R
+    │   │   │   ├── diff
+    │   │   │   │   └── diff.R
+    │   │   │   ├── sctype
+    │   │   │   │   └── run.R
+    │   │   │   └── SingleR
+    │   │   │       └── run.R
+    │   │   ├── coloncancer
+    │   │   │   ├── data
+    │   │   │   │   └── proc.R
+    │   │   │   ├── diff
+    │   │   │   │   └── diff.R
+    │   │   │   ├── sctype
+    │   │   │   │   └── run.R
+    │   │   │   └── SingleR
+    │   │   │       └── run.R
+    │   │   └── lungcancer
+    │   │       ├── data
+    │   │       │   └── proc.R
+    │   │       ├── diff
+    │   │       │   └── diff.R
+    │   │       ├── sctype
+    │   │       │   └── run.R
+    │   │       └── SingleR
+    │   │           └── run.R
+    │   ├── hca
+    │   │   ├── data
+    │   │   │   └── proc.R
+    │   │   ├── sctype
+    │   │   │   └── run.R
+    │   │   └── SingleR
+    │   │       └── run.R
+    │   ├── hcl
+    │   │   ├── data
+    │   │   │   └── proc.R
+    │   │   ├── sctype
+    │   │   │   └── run.R
+    │   │   └── SingleR
+    │   │       └── run.R
+    │   ├── mca
+    │   │   ├── data
+    │   │   │   └── proc.R
+    │   │   ├── sctype
+    │   │   │   └── run.R
+    │   │   └── SingleR
+    │   │       └── run.R
+    │   ├── numcell
+    │   │   └── make.R
+    │   ├── stromal
+    │   │   ├── combineexpr.R
+    │   │   └── expr.R
+    │   └── tabulasapiens
+    │       ├── data
+    │       │   └── code
+    │       │       ├── count.R
+    │       │       └── norm.R
+    │       ├── diff
+    │       │   └── code
+    │       │       └── run.R
+    │       ├── sctype
+    │       │   └── code
+    │       │       └── run.R
+    │       ├── SingleR
+    │       │   └── code
+    │       │       └── run.R
+    │       └── template
+    │           ├── make.R
+    │           └── template.csv
+    ├── README
+    └── subtype
+        ├── list.csv
+        └── make.R
+```
+
+## Structure
+
+## Depencency
+
