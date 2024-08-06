@@ -9,7 +9,11 @@ platforms = ["linux-64"]
 [tasks]
 # post_install = 'R -e "BiocManager::install(\"rols\")"'
 
-[dependencies]
+[environments]
+default = ['base']
+
+[feature.base.dependencies]
+snakemake = "*"
 r-base = "*"
 r-dplyr = "*"
 r-Seurat = "*"
