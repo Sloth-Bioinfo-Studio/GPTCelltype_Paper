@@ -1,7 +1,7 @@
 start with raw annotation and cell types
-first generate cl, manually annotate, and repopulate back
-then do agreement, manually annotate, and repopulate back
-each time when update cl and agreement, check if already done
+1. first generate cl, manually annotate, and repopulate back
+2. then do agreement, manually annotate, and repopulate back
+3. each time when update cl and agreement, check if already done
 
 ## Abstract
 
@@ -103,5 +103,72 @@ anno
 
 ## Structure
 
+- cl: 看上去是信息整合的表
+- code:
+- compiled: 可能是这部分的结果文件
+- process: 实际的处理部分
+    + cancer: 癌症数据
+    +  
+    
+
 ## Depencency
 
+## Content
+
+### cl
+
+- input:
+    + /anno/compiled/gpt4topgenenumber.csv
+    + /anno/compiled/all.csv
+    + /simu/gpt4aug3/noise.csv
+    + /simu/gpt4aug3/subset.csv
+- output:
+    + /anno/cl/compiled.csv
+- 作用:
+    + 将注释的细胞类型归类到有CL编号的类型
+
+### code
+
+- all.R
+    - input:
+        + /anno/res/gpt4aug3.csv
+        + /anno/res/gpt4mar23.csv
+        + /anno/res/gpt3.5aug3.csv
+        + /anno/res/cellmarker.csv
+        + /anno/res/sctype.csv
+        + /anno/res/SingleR.csv
+        + /anno/cl/compiled.csv
+        + /anno/cl/relation.csv
+        + /anno/agreement/compiled.csv
+    - output:
+        + 
+    - 作用:
+        + 汇总所有注释结果
+        
+
+- makegpttabulasapiens.R
+    + input
+        * /anno/code/gpttabulasapienstemplate.csv
+    + output
+        * /anno/gpt3.5aug3tabulasapiens.csv
+    + 功能:
+        读取问题模板, 调用接口获得回答结果
+
+- makegptother.R
+    + 功能输入类似makegpttabulasapiens.R, 选取基因似乎不同
+
+- gpt4topgenenumber.R
+    + 汇总不同数目TOP基因下, GPT的注释结果
+
+### subtype
+
+- 没看懂
+
+### process
+
+- data/code/*: 数据原始处理, 对表达矩阵进行norm
+- 其他代码, 进行运行, 保存结果
+
+- 不同数据集的处理
+    + SingleR > 应该是生成了SingleCellExperiment对象
+    + sctype > 生成Seurat对象
