@@ -176,7 +176,7 @@ anno
 ### process
 
 - data/code/*: 数据原始处理, 对表达矩阵进行norm
-- 其他代码, 进行运行, 保存结果
+    + 如果没有`code`文件夹，可能直接是一个`Proc.R`脚本
 
 - 不同数据集的处理
     + SingleR > 应该是生成了SingleCellExperiment对象
