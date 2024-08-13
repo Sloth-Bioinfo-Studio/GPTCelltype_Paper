@@ -1,11 +1,11 @@
 library(data.table)
-d11 <- fread('/Users/zhichengji/Dropbox/research/gptcelltype/anno/res/gpt4aug3.csv',data.table=F,na.strings = NULL)
+d11 <- fread('gptcelltype/anno/res/gpt4aug3.csv',data.table=F,na.strings = NULL)
 d11 <- d11[!grepl('top20|top30',d11[,1]),]
 d11$annotation <- sub('[0-9]*\\. ','',d11$annotation)
 d11[,1] <- sub('_top10','',d11[,1])
 colnames(d11)[5] <- 'gpt4aug3_annotation'
 
-d12 <- fread('/Users/zhichengji/Dropbox/research/gptcelltype/anno/res/gpt4mar23.csv',data.table=F,na.strings = NULL)
+d12 <- fread('gptcelltype/anno/res/gpt4mar23.csv',data.table=F,na.strings = NULL)
 d12 <- d12[!grepl('top20|top30',d12[,1]),]
 d12[,1] <- sub('_top10','',d12[,1])
 d11$gpt4mar23_annotation <- NA
@@ -14,13 +14,13 @@ d11$gpt4mar23_annotation[1:nrow(d12)] <- d12$annotation
 sapply(1:4,function(i) mean(d11[1:nrow(d12),i]==d12[,i]))
 cbind(d11[which(d11[1:nrow(d12),3]!=d12[,3]),3],d12[which(d11[1:nrow(d12),3]!=d12[,3]),3])
 
-d13 <- fread('/Users/zhichengji/Dropbox/research/gptcelltype/anno/res/gpt3.5aug3.csv',data.table=F,na.strings = NULL)
+d13 <- fread('gptcelltype/anno/res/gpt3.5aug3.csv',data.table=F,na.strings = NULL)
 d11$gpt3.5aug3_annotation <- d13$annotation
 #check
 sapply(1:4,function(i) mean(d11[,i]==d13[,i]))
 cbind(d11[which(d11[,3]!=d13[,3]),3],d13[which(d11[,3]!=d13[,3]),3])
 
-d14 <- fread('/Users/zhichengji/Dropbox/research/gptcelltype/anno/res/cellmarker.csv',data.table=F,na.strings = NULL)
+d14 <- fread('gptcelltype/anno/res/cellmarker.csv',data.table=F,na.strings = NULL)
 d11$cellmarker_annotation <- d14$annotation
 #check
 sapply(1:4,function(i) mean(d11[,i]==d14[,i]))
@@ -28,8 +28,8 @@ cbind(d11[which(d11[,3]!=d14[,3]),3],d14[which(d11[,3]!=d14[,3]),3])
 d <- d11
 d$tissue <- sub('_',' ',d$tissue)
 
-d2 <- fread('/Users/zhichengji/Dropbox/research/gptcelltype/anno/res/sctype.csv',data.table=F)
-d22 <- fread('/Users/zhichengji/Dropbox/research/gptcelltype/anno/res/SingleR.csv',data.table=F)
+d2 <- fread('gptcelltype/anno/res/sctype.csv',data.table=F)
+d22 <- fread('gptcelltype/anno/res/SingleR.csv',data.table=F)
 sapply(1:3,function(i) mean(d2[,i]==d22[,i],na.rm=T))
 colnames(d2)[4] <- 'sctype_annotation'
 d2$SingleR_annotation <- d22$annotation
@@ -53,7 +53,7 @@ d$sctype_annotation <- d$SingleR_annotation <- NA
 d$sctype_annotation[match(td2,td)] <- d2$sctype_annotation
 d$SingleR_annotation[match(td2,td)] <- d2$SingleR_annotation
 
-cl <- read.csv('Dropbox/research/gptcelltype/anno/cl/compiled.csv',as.is=T,header=T)
+cl <- read.csv('gptcelltype/anno/cl/compiled.csv',as.is=T,header=T)
 mean(sub('cells','cell',tolower(d$celltype))%in%cl[,1])
 sapply(grep('annotation',colnames(d),value=T),function(i) {
 	mean(sub('cells','cell',tolower(setdiff(d[,i],NA)))%in%cl[,1])
@@ -81,7 +81,7 @@ for (i in grep('annotation',colnames(d),value=T)) {
 	d[,sub('_annotation','_broadtype',i)] <- cl[match(sub('cells','cell',tolower(d[,i])),cl[,1]),4]
 }
 
-hier <- as.matrix(read.csv('Dropbox/research/gptcelltype/anno/cl/relation.csv',as.is=T,header=F))
+hier <- as.matrix(read.csv('gptcelltype/anno/cl/relation.csv',as.is=T,header=F))
 hier <- rbind(hier,hier[,2:1])
 hv <- hier[,1]
 names(hv) <- hier[,2]
@@ -127,7 +127,7 @@ cn <- apply(expand.grid(c('annotation','CLname','CLID','broadtype','agreement'),
 cn <- setdiff(cn,'manual_agreement')
 d <- d[,c('dataset','tissue','marker',cn)]
 
-# agree <- read.csv('Dropbox/research/gptcelltype/anno/agreement/compiled.csv')
+# agree <- read.csv('gptcelltype/anno/agreement/compiled.csv')
 # for (i in grep('annotation',colnames(d),value=T)) {
 # 	t1 <- paste0(sub('cells','cell',tolower(d$celltype)),':-:',d$celltype_CLname)
 # 	t2 <- paste0(sub('cells','cell',tolower(d[,i])),':-:',d[,sub('_annotation','_CLname',i)])
@@ -138,5 +138,5 @@ d <- d[,c('dataset','tissue','marker',cn)]
 # 	agk <- paste0(agree[,1],':-:',agree[,2],';',agree[,3],':-:',agree[,4])
 # 	d[,sub('_annotation','_agreement',i)] <- agree[match(k,agk),'agreement']
 # }
-write.csv(d,file='Dropbox/research/gptcelltype/anno/compiled/all.csv',row.names=F)
+write.csv(d,file='gptcelltype/anno/compiled/all.csv',row.names=F)
 
