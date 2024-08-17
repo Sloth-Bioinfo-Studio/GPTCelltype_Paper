@@ -13,9 +13,14 @@ platforms = ["linux-64"]
 default = ['base']
 
 [feature.base.dependencies]
+python = '3.11.*'
 snakemake = "*"
 snakemake-storage-plugin-ftp = '*'
 snakemake-storage-plugin-http = '*'
+scanpy = '*'
+ipykernel = '*'
+pixi-kernel = '*'
+r-irkernel = "*"
 r-base = "*"
 r-dplyr = "*"
 r-Seurat = "*"
@@ -30,6 +35,7 @@ r-psych = "*"
 r-RColorBrewer = "*"
 r-reshape2 = "*"
 r-anndata = "*"
+r-reticulate = ">=1.14"
 bioconductor-rols = "*"
 bioconductor-celldex = "*"
 bioconductor-SingleR = "*"
