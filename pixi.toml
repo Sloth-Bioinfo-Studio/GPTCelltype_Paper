@@ -14,6 +14,8 @@ default = ['base']
 
 [feature.base.dependencies]
 snakemake = "*"
+snakemake-storage-plugin-ftp = '*'
+snakemake-storage-plugin-http = '*'
 r-base = "*"
 r-dplyr = "*"
 r-Seurat = "*"
