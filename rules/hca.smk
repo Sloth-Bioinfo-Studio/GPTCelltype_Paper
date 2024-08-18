@@ -54,7 +54,9 @@ rule sctype:
     input:
         norm = 'data/hca/proc/{tissue}/norm.rds',
         ct = 'data/hca/proc/{tissue}/ct.rds',
-        full = 'software/sctype/ScTypeDB_full.xlsx'
+        full = 'software/sctype/ScTypeDB_full.xlsx',
+        script1 = 'software/sctype/gene_sets_prepare.R',
+        script2 = 'software/sctype/sctype_score_.R',
     output:
         res = 'anno/process/hca/sctype/res/{tissue}/res.rds',
         time = 'anno/process/hca/sctype/res/{tissue}/time.rds',

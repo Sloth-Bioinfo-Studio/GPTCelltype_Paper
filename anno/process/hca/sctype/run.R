@@ -5,8 +5,10 @@ scalematrix <- function(data) {
 }
 
 lapply(c("dplyr","Seurat","HGNChelper","openxlsx"), library, character.only = T)
-source("https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/gene_sets_prepare.R")
-source("https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/sctype_score_.R")
+# source("https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/gene_sets_prepare.R")
+# source("https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/sctype_score_.R")
+source(snakemake@input[['script1']])
+source(snakemake@input[['script2']])
 source('software/sctype/sctype_score.R')
 id <- as.numeric(commandArgs(trailingOnly = T))
 # af <- list.files('/celltype/hca/data/proc')
