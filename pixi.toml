@@ -18,6 +18,7 @@ snakemake = "*"
 snakemake-storage-plugin-ftp = '*'
 snakemake-storage-plugin-http = '*'
 scanpy = '*'
+openpyxl = '*'
 ipykernel = '*'
 pixi-kernel = '*'
 r-irkernel = "*"

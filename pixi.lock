@@ -84,6 +84,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/docutils-0.21.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/dpath-2.2.0-pyha770c72_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/eido-0.2.2-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/et_xmlfile-1.1.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/executing-2.0.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/expat-2.6.2-h59595ed_0.conda
@@ -202,6 +203,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/oauthlib-3.2.2-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/oniguruma-6.9.9-hd590300_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openjpeg-2.5.2-h488ebb8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/openpyxl-3.1.5-py312h98912ed_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.3.1-h4bc722e_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/packaging-24.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/pandas-2.2.2-py312h1d6d2e6_1.conda
@@ -1996,6 +1998,21 @@ packages:
   license_family: BSD
   size: 19951
   timestamp: 1700190933845
+- kind: conda
+  name: et_xmlfile
+  version: 1.1.0
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/et_xmlfile-1.1.0-pyhd8ed1ab_0.conda
+  sha256: 0c7bb50e1382615a660468dc531b8b17c5b91b88a02ed131c8e3cc63db507ce2
+  md5: a2f2138597905eaa72e561d8efb42cf3
+  depends:
+  - python >=3.6
+  license: MIT
+  license_family: MIT
+  size: 10602
+  timestamp: 1674664251571
 - kind: conda
   name: exceptiongroup
   version: 1.2.2
@@ -3989,6 +4006,23 @@ packages:
   license_family: BSD
   size: 341592
   timestamp: 1709159244431
+- kind: conda
+  name: openpyxl
+  version: 3.1.5
+  build: py312h98912ed_0
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/openpyxl-3.1.5-py312h98912ed_0.conda
+  sha256: ec72232cb8c6a537f5b8f01cbc68d64486e62505d4cd9b25d5dc029f26db0cf9
+  md5: 5265c8fb3517b52a39bf253387d35dcf
+  depends:
+  - et_xmlfile
+  - libgcc-ng >=12
+  - python >=3.12,<3.13.0a0
+  - python_abi 3.12.* *_cp312
+  license: MIT
+  license_family: MIT
+  size: 696433
+  timestamp: 1723459244053
 - kind: conda
   name: openssl
   version: 3.3.1
