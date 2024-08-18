@@ -194,3 +194,9 @@ anno
 - Colon cancer gene expression: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132465
 - TS gene expression matrix: https://cells.ucsc.edu/?ds=tabula-sapiens
 - HubMAP: https://azimuth.hubmapconsortium.org
+
+## 运行复现流程
+
+```bash
+pixi run snakemake anno/process/hca/celltype.done -j 1 --rerun-triggers mtime 
+```

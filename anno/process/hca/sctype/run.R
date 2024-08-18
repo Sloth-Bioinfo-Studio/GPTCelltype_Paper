@@ -41,6 +41,6 @@ rt <- system.time({
 	ct <- colnames(ss)[apply(ss,1,which.max)]
 	ct <- data.frame(orict=rownames(ss),predct=ct)
 })
-saveRDS(rt,snakemake@params[['time']])
-saveRDS(ct,snakemake@params[['res']])
+saveRDS(rt,snakemake@output[['time']])
+saveRDS(ct,snakemake@output[['res']])
 

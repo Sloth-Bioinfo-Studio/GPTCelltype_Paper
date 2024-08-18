@@ -24,8 +24,8 @@ suppressMessages(library(SingleR))
 
 # 读取数据部分
 dir.create(snakemake@params[['path']])
-clu <- readRDS(snakemake@input[['norm']])
-d <- readRDS(snakemake@input[['ct']])
+clu <- readRDS(snakemake@input[['ct']])
+d <- readRDS(snakemake@input[['norm']])
 
 # 进行预测并记录时间
 rt <- system.time({pred <- SingleR(test = d, ref = hpca.se, assay.type.test=1,labels = hpca.se$label.main)})

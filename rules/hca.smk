@@ -45,7 +45,7 @@ rule singler:
         time = 'anno/process/hca/SingleR/res/{tissue}/time.rds',
         done = touch('anno/process/hca/SingleR/res/{tissue}/done'),
     params:
-        path = 'data/hca/proc/{tissue}'
+        path = 'anno/process/hca/SingleR/res/{tissue}'
     script:
         '../anno/process/hca/SingleR/run.R'
 
@@ -60,7 +60,7 @@ rule sctype:
         time = 'anno/process/hca/sctype/res/{tissue}/time.rds',
         done = touch('anno/process/hca/sctype/res/{tissue}/done'),
     params:
-        path = 'data/hca/proc/{tissue}'
+        path = 'anno/process/hca/sctype/res/{tissue}'
     output:
     script:
         '../anno/process/hca/sctype/run.R'
