@@ -198,5 +198,5 @@ anno
 ## 运行复现流程
 
 ```bash
-pixi run snakemake anno/process/hca/celltype.done -j 1 --rerun-triggers mtime 
+pixi run snakemake -U all -j 1 --rerun-triggers mtime
 ```

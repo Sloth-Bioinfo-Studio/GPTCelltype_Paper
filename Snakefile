@@ -1,37 +1,31 @@
 # download data from source
 # https://figshare.com/ndownloader/articles/5435866?private_link=865e694ad06d5857db4b
 
-module hca:
-    snakefile:
-        # here, plain paths, URLs and the special markers for code hosting providers (see below) are possible.
-        "rules/hca.smk"
-    config: config
-
-use rule * from hca as hca_*
-
-rule all:
-    input:
-        'anno/process/hca/celltype.done'
-        
 storage:
     provider="http",
     allow_redirects=True
 
+rule all:
+    input:
+        ['anno/process/hca/celltype.done', 'anno/process/hcl/celltype.done']
 
-# rule unzip_hcl_data:
-#     input:
-#         'data/hcl.zip'
-#     output:
-#         h5ad = 'data/hcl/MCA1.1_adata.h5ad',
-#         anno = 'data/hcl/annotation_rmbatch_data_revised417.zip',
-#         deg_raw = 'data/hcl/dge_raw_data.tar.gz',
-#         deg_rmbatch = 'data/hcl/dge_rmbatch_data.tar.gz',
-#     params:
-#         path = 'data/hcl'
-#     shell:
-#         '''
-#         unzip -d {params.path} {input}
-#         '''
+        
+rule fetch_sctype_script:
+    input:
+        script1 = storage.http(
+            'https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/gene_sets_prepare.R',
+        ),
+        script2 = storage.http(
+            'https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/sctype_score_.R',
+        ),
+    output:
+        script1 = 'software/sctype/gene_sets_prepare.R',
+        script2 = 'software/sctype/sctype_score_.R',
+    shell:
+        '''
+        mv {input.script1} {output.script1}
+        mv {input.script2} {output.script2}
+        '''
 
 
 # rule unzip_mca_data:
@@ -64,4 +58,19 @@ storage:
 #         ),
 #     output:
 #         ''
+
+module hca:
+    snakefile:
+        "rules/hca.smk"
+    config: config
+
+use rule * from hca as hca_*
+
+module hcl:
+    snakefile:
+        "rules/hcl.smk"
+    config: config
+
+use rule * from hcl as hcl_*
+
 
