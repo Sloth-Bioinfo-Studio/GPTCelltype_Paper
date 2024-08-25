@@ -33,8 +33,8 @@ rule proc:
 
 rule singler:
     input:
-        anno = 'data/bcl/proc/anno.rds',
-        norm = 'data/bcl/proc/norm.rds'
+        anno = 'data/cancer/bcl/proc/anno.rds',
+        norm = 'data/cancer/bcl/proc/norm.rds'
     output:
         res = 'anno/process/cancer/bcl/SingleR/res/res.rds',
         fullpred = 'anno/process/cancer/bcl/SingleR/res/fullpred.rds',
@@ -48,8 +48,8 @@ rule singler:
 
 rule sctype:
     input:
-        norm = 'data/bcl/proc/norm.rds',
-        anno = 'data/bcl/proc/anno.rds',
+        norm = 'data/cancer/bcl/proc/norm.rds',
+        anno = 'data/cancer/bcl/proc/anno.rds',
         full = 'software/sctype/ScTypeDB_full.xlsx',
         script1 = 'software/sctype/gene_sets_prepare.R',
         script2 = 'software/sctype/sctype_score_.R',
