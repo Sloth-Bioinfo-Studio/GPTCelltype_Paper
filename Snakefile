@@ -7,7 +7,8 @@ storage:
 
 rule all:
     input:
-        ['anno/process/hca/celltype.done', 'anno/process/hcl/celltype.done']
+        'anno/process/hca/celltype.done',
+        'anno/process/hcl/celltype.done'
 
         
 rule fetch_sctype_script:
@@ -72,5 +73,3 @@ module hcl:
     config: config
 
 use rule * from hcl as hcl_*
-
-

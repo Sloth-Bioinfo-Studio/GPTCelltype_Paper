@@ -13,7 +13,7 @@ d <- read_h5ad(snakemake@input[['h5ad']])
 d <- t(d$X)
 colnames(d) <- sub('-[0-9]$','',colnames(d))
 dir.create(paste0(snakemake@params[['path']]))
-saveRDS(d,snakemake@output[['count']])
+saveRDS(d,snakemake@output[['count_rds']])
 d <- t(log2(t(d)/colSums(d)*10000+1))
 rownames(a) <- a[,1]
 a <- a[colnames(d),]
