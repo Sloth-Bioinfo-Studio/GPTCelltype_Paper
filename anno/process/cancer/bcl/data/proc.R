@@ -1,5 +1,7 @@
 library(anndata)
 library(Matrix)
+assignInNamespace("is_conda_python", function(x){ return(FALSE) }, ns="reticulate")
+
 # d <- anndata::read_h5ad('/celltype/bcl/data/raw/scRNA_BCR_TCR.h5ad')
 d <- anndata::read_h5ad(snakemake@input[['h5ad']])
 
