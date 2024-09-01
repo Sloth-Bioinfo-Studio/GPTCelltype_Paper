@@ -259,6 +259,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/r-bslib-0.8.0-r43hc72bb7e_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-cachem-1.1.0-r43hb1dbf0f_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-catools-1.18.2-r43ha18555a_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/r-cellranger-1.1.0-r43hc72bb7e_1007.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-cli-3.6.3-r43h0d4f4ea_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-cluster-2.1.6-r43hbcb9c34_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/r-codetools-0.2_20-r43hc72bb7e_1.conda
@@ -375,6 +376,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/r-rcppprogress-0.4.2-r43hc72bb7e_4.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-rcpptoml-0.2.2-r43ha18555a_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-rcurl-1.98_1.16-r43h6b349a7_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/r-readxl-1.4.3-r43he58e087_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/r-rematch-2.0.0-r43hc72bb7e_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/r-repr-1.1.7-r43h785f33e_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-reshape2-1.4.4-r43h0d4f4ea_4.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/r-reticulate-1.38.0-r43h0d4f4ea_1.conda
@@ -5008,6 +5011,24 @@ packages:
   size: 221452
   timestamp: 1719796498156
 - kind: conda
+  name: r-cellranger
+  version: 1.1.0
+  build: r43hc72bb7e_1007
+  build_number: 1007
+  subdir: noarch
+  noarch: generic
+  url: https://conda.anaconda.org/conda-forge/noarch/r-cellranger-1.1.0-r43hc72bb7e_1007.conda
+  sha256: 1fb05dddb87c864ccacffb89857ec3779fdd3c16209d4a36b18ae179815788ad
+  md5: 350fc39da2e9660b475f38a2cc2c4aab
+  depends:
+  - r-base >=4.3,<4.4.0a0
+  - r-rematch
+  - r-tibble
+  license: MIT
+  license_family: MIT
+  size: 108137
+  timestamp: 1721286895194
+- kind: conda
   name: r-cli
   version: 3.6.3
   build: r43h0d4f4ea_1
@@ -7154,6 +7175,45 @@ packages:
   license_family: BSD
   size: 820020
   timestamp: 1720715637743
+- kind: conda
+  name: r-readxl
+  version: 1.4.3
+  build: r43he58e087_1
+  build_number: 1
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/r-readxl-1.4.3-r43he58e087_1.conda
+  sha256: 9c4e5381e85a0df16efbdc5733983d66ca6fac0519a674092824ab4d37495793
+  md5: 32e15ee3765d83331fd41f55fdc509ae
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  - libiconv >=1.17,<2.0a0
+  - libstdcxx-ng >=12
+  - r-base >=4.3,<4.4.0a0
+  - r-cellranger
+  - r-cpp11 >=0.4.0
+  - r-progress
+  - r-tibble >=2.0.1
+  license: MIT
+  license_family: MIT
+  size: 745033
+  timestamp: 1721321023803
+- kind: conda
+  name: r-rematch
+  version: 2.0.0
+  build: r43hc72bb7e_1
+  build_number: 1
+  subdir: noarch
+  noarch: generic
+  url: https://conda.anaconda.org/conda-forge/noarch/r-rematch-2.0.0-r43hc72bb7e_1.conda
+  sha256: 80a8d0bfa6da5e97b68665cf20faa3f8a60da5a1aa2d499e34d4982a89c303ad
+  md5: 3a0951ee971e0ecd8896771d8871cd73
+  depends:
+  - r-base >=4.3,<4.4.0a0
+  license: MIT
+  license_family: MIT
+  size: 25054
+  timestamp: 1719772135961
 - kind: conda
   name: r-repr
   version: 1.1.7
