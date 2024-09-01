@@ -25,8 +25,6 @@ rule proc:
         norm = 'data/cancer/bcl/proc/norm.rds',
         anno = 'data/cancer/bcl/proc/anno.rds',
         count_rds = 'data/cancer/bcl/proc/count.rds',
-    params:
-        path = 'data/cancer/bcl/proc',
     script:
         '../anno/process/cancer/bcl/data/proc.R'
 
