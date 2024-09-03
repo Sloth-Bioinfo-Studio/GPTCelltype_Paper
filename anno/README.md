@@ -107,14 +107,14 @@ anno
 - code:
 - compiled: 可能是这部分的结果文件
 - process: 原始数据处理部分, 
-    + agg: 7个数据集结果汇总(SingleR和sctype, ？)
-    + numcell: 将所有数据集中的metadata汇总？
-    + stromal: 汇总所有表达矩阵
-    + mca(1 dataset): MCA single cell DGE data数据集的处理脚本
-    + hcl(1 dataset): HCL DGE Data数据集的处理脚本
-    + hca(1 dataset): 对应GTEx数据集中的单细胞数据
-    + cancer(3 dataset): 癌症数据, 包括一个来自zendo的数据集，两个来自GSE的数据集
-    + tabulasapiens(1 dataset): UCSC Cell 数据库下的tabula-sapiens数据集
+    + [ ] agg: 7个数据集结果汇总(SingleR和sctype, ？)
+    + [ ] numcell: 将所有数据集中的metadata汇总？
+    + [ ] stromal: 汇总所有表达矩阵
+    + [?] mca(1 dataset): MCA single cell DGE data数据集的处理脚本
+    + [x] hcl(1 dataset): HCL DGE Data数据集的处理脚本
+    + [x] hca(1 dataset): 对应GTEx数据集中的单细胞数据
+    + [ ] cancer(3 dataset): 癌症数据, 包括一个来自zendo的数据集，两个来自GSE的数据集
+    + [?] tabulasapiens(1 dataset): UCSC Cell 数据库下的tabula-sapiens数据集
 - 似乎缺少了HubMap的处理内容？
 
 ## Depencency

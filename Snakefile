@@ -9,8 +9,9 @@ rule all:
     input:
         'anno/process/hca/celltype.done',
         'anno/process/hcl/celltype.done',
-        'anno/process/cancer/bcl/celltype.done',
         # 'anno/process/mca/celltype.done',
+        'anno/process/cancer/bcl/celltype.done',
+        'anno/process/cancer/lungcancer/celltype.done',
 
         
 # rule fetch_sctype_script:
@@ -63,3 +64,9 @@ module bcl:
 use rule * from bcl as bcl_*
 
 
+module lungcancer:
+    snakefile:
+        "rules/lungcancer.smk"
+    config: config
+
+use rule * from lungcancer as lungcancer_*
