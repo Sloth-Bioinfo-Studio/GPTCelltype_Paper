@@ -11,10 +11,10 @@ rule fetch_metadata:
             'https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE131907&format=file&file=GSE131907%5FLung%5FCancer%5Fcell%5Fannotation%2Etxt%2Egz',
         ),
     output:
-        'data/cancer/lungcancer/GSE131907_Lung_Cancer_cell_annotation.txt.gz'
+        'data/cancer/lungcancer/GSE131907_Lung_Cancer_cell_annotation.txt'
     shell:
         '''
-        mv {input} {output}
+         gzip -dc {input} > {output}
         '''
 
 
@@ -27,7 +27,7 @@ rule fetch_count:
         'data/cancer/lungcancer/GSE131907_Lung_Cancer_raw_UMI_matrix.rds'
     shell:
         '''
-        gzip -c {input} > {output}
+        gzip -dc {input} > {output}
         '''
 
 
@@ -40,13 +40,13 @@ rule fetch_norm:
         'data/cancer/lungcancer/GSE131907_Lung_Cancer_normalized_log2TPM_matrix.rds'
     shell:
         '''
-        gzip -c {input} > {output}
+        gzip -dc {input} > {output}
         '''
 
 
 rule proc:
     input:
-        metadata = 'data/cancer/lungcancer/GSE131907_Lung_Cancer_cell_annotation.txt.gz',
+        metadata = 'data/cancer/lungcancer/GSE131907_Lung_Cancer_cell_annotation.txt',
         count_mtx = 'data/cancer/lungcancer/GSE131907_Lung_Cancer_raw_UMI_matrix.rds',
         norm = 'data/cancer/lungcancer/GSE131907_Lung_Cancer_normalized_log2TPM_matrix.rds',
     output:
