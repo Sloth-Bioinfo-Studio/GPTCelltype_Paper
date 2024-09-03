@@ -10,25 +10,25 @@ rule all:
         'anno/process/hca/celltype.done',
         'anno/process/hcl/celltype.done',
         'anno/process/cancer/bcl/celltype.done',
-        'anno/process/mca/celltype.done',
+        # 'anno/process/mca/celltype.done',
 
         
-rule fetch_sctype_script:
-    input:
-        script1 = storage.http(
-            'https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/gene_sets_prepare.R',
-        ),
-        script2 = storage.http(
-            'https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/sctype_score_.R',
-        ),
-    output:
-        script1 = 'software/sctype/gene_sets_prepare.R',
-        script2 = 'software/sctype/sctype_score_.R',
-    shell:
-        '''
-        mv {input.script1} {output.script1}
-        mv {input.script2} {output.script2}
-        '''
+# rule fetch_sctype_script:
+#     input:
+#         script1 = storage.http(
+#             'https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/gene_sets_prepare.R',
+#         ),
+#         script2 = storage.http(
+#             'https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/sctype_score_.R',
+#         ),
+#     output:
+#         script1 = 'software/sctype/gene_sets_prepare.R',
+#         script2 = 'software/sctype/sctype_score_.R',
+#     shell:
+#         '''
+#         mv {input.script1} {output.script1}
+#         mv {input.script2} {output.script2}
+#         '''
 
 
 module hca:

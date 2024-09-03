@@ -3,7 +3,9 @@ library(readxl)
 # a <- fread('/celltype/mca/data/raw/celltype.csv',data.table=F)
 # cl <- fread('/celltype/mca/data/raw/cluster.csv',data.table=F)
 a <- read_excel(snakemake@input[['anno']], sheet = "MCA_Fig2_Celltype")
+a <- as.data.frame(a)
 cl <- fread(snakemake@input[['cluster']], data.table=F)
+cl <- cl[,-1]
 
 cl$celltype <- a[match(cl[,2],a[,1]),2]
 
